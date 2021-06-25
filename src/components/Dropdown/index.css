@@ -1,0 +1,9 @@
+.CenterDrop {
+    display: flex;
+    width: 30%;
+    height: 25px;
+    border: 1px solid gray;
+    padding-right: 7px;
+    margin-left: 30%;
+    cursor: pointer;
+}

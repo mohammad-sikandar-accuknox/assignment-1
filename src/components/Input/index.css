@@ -1,0 +1,16 @@
+.Input {
+    border: none;
+    width: 100%;
+}
+input:focus {
+    outline: none;
+}
+.Center {
+    display: flex;
+    width: 30%;
+    height: 25px;
+    border: 5px solid gray;
+    padding-right: 7px;
+    margin-left: 30%;
+    margin-top: 10%;
+}
