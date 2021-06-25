@@ -42,6 +42,7 @@ function App() {
   return (
     <>
       <Input items={items} chip={handleChip} />
+      <div style={{margin:'3px'}}></div>
       <Dropdown items={items} drop={handleDropdown} />
     </>
   );
