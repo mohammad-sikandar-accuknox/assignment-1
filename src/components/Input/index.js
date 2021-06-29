@@ -4,7 +4,7 @@ import Chip from "../Chip";
 import Arrow from "../DropArrow";
 
 const Input = (props) => {
-  const { items, chip, arrow , handleQuery, handleArrow } = props;
+  const { items, chip, arrow, handleQuery, handleArrow, handleClear } = props;
   return (
     <div>
       <div className="Center">
@@ -24,7 +24,19 @@ const Input = (props) => {
         })}
 
         <input className="Input" onChange={handleQuery} autoFocus />
-        <div style={{ marginRight: '6px', paddingTop: '2px', color: 'silver', fontWeight:'700'}}>|</div>
+        <span className="close-btn" onClick={handleClear}>
+          &times;
+        </span>
+        <div
+          style={{
+            marginRight: "6px",
+            paddingTop: "2px",
+            color: "silver",
+            fontWeight: "700",
+          }}
+        >
+          |
+        </div>
         <Arrow arrow={arrow} handleArrow={handleArrow} />
       </div>
     </div>

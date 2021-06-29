@@ -40,6 +40,12 @@ function App() {
         ...items.slice(index + 1),
       ]);
   }
+  function changeDesc(lists, value) {
+    for (var i in lists) {
+      lists[i].selected = value;
+    }
+    return lists;
+  }
   const handleDropdown = (e) => {
     updateItem(e, { selected: true });
   };
@@ -53,6 +59,10 @@ function App() {
     setArrow((arrow) => !arrow);
     console.log(arrow);
   };
+  const handleClear = () => {
+    const lists = [...items];
+    setItems(changeDesc(lists, false));
+  };
   return (
     <>
       <Input
@@ -61,9 +71,15 @@ function App() {
         arrow={arrow}
         handleQuery={handleQuery}
         handleArrow={handleArrow}
+        handleClear={handleClear}
       />
       <div style={{ margin: "3px" }}></div>
-      <Dropdown items={items} drop={handleDropdown} query={query} arrow={arrow}/>
+      <Dropdown
+        items={items}
+        drop={handleDropdown}
+        query={query}
+        arrow={arrow}
+      />
     </>
   );
 }
