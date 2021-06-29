@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Dropdown from "./components/Dropdown";
 
 function App() {
+  const [arrow, setArrow] = useState(true);
+  const [query, setQuery] = useState("");
   const [items, setItems] = useState([
     {
       id: "1",
@@ -18,6 +20,11 @@ function App() {
     {
       id: "3",
       item: "Windows",
+      selected: false,
+    },
+    {
+      id: "4",
+      item: "Linux",
       selected: false,
     },
   ]);
@@ -39,11 +46,24 @@ function App() {
   const handleChip = (e) => {
     updateItem(e, { selected: false });
   };
+  const handleQuery = (e) => {
+    setQuery(e.target.value);
+  };
+  const handleArrow = () => {
+    setArrow((arrow) => !arrow);
+    console.log(arrow);
+  };
   return (
     <>
-      <Input items={items} chip={handleChip} />
-      <div style={{margin:'3px'}}></div>
-      <Dropdown items={items} drop={handleDropdown} />
+      <Input
+        items={items}
+        chip={handleChip}
+        arrow={arrow}
+        handleQuery={handleQuery}
+        handleArrow={handleArrow}
+      />
+      <div style={{ margin: "3px" }}></div>
+      <Dropdown items={items} drop={handleDropdown} query={query} arrow={arrow}/>
     </>
   );
 }

@@ -1,9 +1,10 @@
 import React from "react";
 import "../Input/index.css";
 import Chip from "../Chip";
+import Arrow from "../DropArrow";
 
 const Input = (props) => {
-  const { items, chip } = props;
+  const { items, chip, arrow , handleQuery, handleArrow } = props;
   return (
     <div>
       <div className="Center">
@@ -22,7 +23,9 @@ const Input = (props) => {
           }
         })}
 
-        <input className="Input" autoFocus />
+        <input className="Input" onChange={handleQuery} autoFocus />
+        <div style={{ marginRight: '6px', paddingTop: '2px', color: 'silver', fontWeight:'700'}}>|</div>
+        <Arrow arrow={arrow} handleArrow={handleArrow} />
       </div>
     </div>
   );
